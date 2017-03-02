@@ -5,6 +5,16 @@ Set the URL to the users picture, then set the class for each user on each insta
 
 Note from Snille: I'm new to the MagicMirror world and Node.js, this is my first attempt to modify a module. There are probably lot's of things that could have been done better. :)
 
+### Screen shots
+
+Janes Profilepicture:
+
+![Jane](https://github.com/Snille/MMM-Profilepicture/blob/master/.github/jane.jpg)
+
+Johns Profilepicture:
+
+![John](https://github.com/Snille/MMM-Profilepicture/blob/master/.github/john.jpg)
+
 ## Usage
 
 _Prerequisites_
