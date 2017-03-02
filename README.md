@@ -1,5 +1,7 @@
 # MMM-Profilepicture
-A simple module to add a background picture to the current profile.
+A simple module to add a background picture to the selected profile.
+This module works well with the [MMM-ProfileSwitcher](https://github.com/tosti007/MMM-ProfileSwitcher) module.
+Set the URL to the users picture, then set the class for each user on each instans of the mofule in your config.
 
 Note from Snille: I'm new to the MagicMirror world and Node.js, this is my first attempt to modify a module. There are probably lot's of things that could have been done better. :)
 
@@ -7,8 +9,8 @@ Note from Snille: I'm new to the MagicMirror world and Node.js, this is my first
 
 _Prerequisites_
 
-- requires MagicMirror v2.1.0
-- install and [run](https://github.com/MichMich/MagicMirror/wiki/Auto-Starting-MagicMirror)
+- Requires MagicMirror v2.1.0
+- Install and [run](https://github.com/MichMich/MagicMirror/wiki/Auto-Starting-MagicMirror)
 
 ### Installation
 
@@ -24,20 +26,37 @@ Clone this repository:
 git clone https://github.com/Snille/MMM-Profilepicture.git
 ```
 
-Add some [config entries](#configuration) to your config.js file. After that the content will be added to your mirror.
+Add some [config entries](#configuration) with the atleast the requierd [options](#options) in your config.js file. Add the module one time for each user (with different URL:s for each user of course).
 
 ### Configuration
 
 ```javascript
-     {
-			module: "MMM-Profilepicture",
-			position: "fullscreen_below",
-			config: {
-				// See below for configurable options
-			}
-		},
+	// Johns picture.
+    {
+		module: "MMM-Profilepicture",
+		position: "fullscreen_below",
+		// This will show the picture only for the "John" user.
+		class: "John"
+		config: {
+			// See below for configurable options
+			url: "http://the-url-to-johns-picture"
+		}
+	},
+	// Janes picture.
+    {
+		module: "MMM-Profilepicture",
+		position: "fullscreen_below",
+		// This will show the picture only for the "John" user.
+		class: "Jane"
+		config: {
+			// See below for configurable options
+			url: "http://the-url-to-janes-picture"
+		}
+	},
+	// And so on...
 ```
 
+### Options
 Here are the configuration options to configure the module.
 
 | Option | Description |
