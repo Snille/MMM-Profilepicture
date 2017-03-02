@@ -3,7 +3,7 @@ A simple module to add a background picture to the selected profile.
 This module works well with the [MMM-ProfileSwitcher](https://github.com/tosti007/MMM-ProfileSwitcher) module.
 Set the URL to the users picture, then set the class for each user on each instans of the module in your config.
 
-Note from Snille: I'm new to the MagicMirror world and Node.js, this is my first attempt to modify a module. There are probably lot's of things that could have been done better. :)
+Note: I'm new to the MagicMirror world and Node.js, this is my first real module. There are probably lot's of things that could have been done better. :)
 
 ### Screen shots
 
