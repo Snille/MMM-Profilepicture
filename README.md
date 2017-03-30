@@ -42,22 +42,22 @@ Add some [config entries](#configuration) with the atleast the requierd [options
 
 ```javascript
 	// Johns picture.
-    {
+	{
 		module: "MMM-Profilepicture",
 		position: "fullscreen_below",
 		// This will show the picture only for the "John" user.
-		class: "John"
+		classes: "John"
 		config: {
 			// See below for configurable options
 			url: "http://the-url-to-johns-picture"
 		}
 	},
 	// Janes picture.
-    {
+	{
 		module: "MMM-Profilepicture",
 		position: "fullscreen_below",
 		// This will show the picture only for the "John" user.
-		class: "Jane"
+		classes: "Jane"
 		config: {
 			// See below for configurable options
 			url: "http://the-url-to-janes-picture"
