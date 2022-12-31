@@ -74,6 +74,9 @@ Here are the configuration options to configure the module.
 |`opacity`|Transparency of the picture. 1.0 is not transperent at all<br><br>**Default value:** `0.2`|
 |`maxWidth`|Maximum width of the picture..<br><br>**Default value:** `100%`|
 |`maxHeight`|Maximum height of the picture.<br><br>**Default value:** `100%`|
+|`updateInterval`|Picture refresh time in milliseconds (1000 * 60 * 5) = 5 min. `false` = no auto update <br><br>**Default value:** `false`|
+|`fadeSpeed`|Fade speed in milliseconds when updating the picture.<br><br>**Default value:** `800`|
+|`id`|The id of this module, if you want to refresh only THIS modules picture remotely you need to set an ID (int) and then send "REFRESHPICTUREID (ID = the number here).<br><br>**Default value:** `false`|
 |`url`|The URL to the picture.<br><br>**Requierd value:** `URL`|
 
 All done. :)
