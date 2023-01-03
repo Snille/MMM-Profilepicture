@@ -61,6 +61,12 @@ Module.register("MMM-Profilepicture",{
 	// Displays the picture.
 	getDom: function () {
 		var wrapper = document.createElement("div");
+		if (this.config.id) {
+			// Add the ID to be able to style the picture with CSS / ID.
+			wrapper.className = "mmm-profilepicture"+this.config.id;
+		} else {
+			wrapper.className = "mmm-profilepicture";
+		}
 		var image = document.createElement("img");
 		image.src = this.config.url + "?" + new Date().getTime();
 		image.id = "mmm-profilepicture";
