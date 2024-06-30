@@ -26,6 +26,8 @@ Module.register("MMM-Profilepicture",{
 		fadeSpeed: 800,
 		// ID of this module (if you want to remotely refresh just this modules picture), set to false to always update on the "REFRESHPICTURE" notification.
 		id: false,
+		// Image base URL for receiving image names over notifications (OBS: Names can ONLY be "url-safe" names!).
+		imageBaseUrl: false,
 	},
 
 	// Refresh the picture if the notification "REFRESHPICTURE(x)" arrives.
@@ -33,10 +35,16 @@ Module.register("MMM-Profilepicture",{
 		var self = this;
 		if (self.config.id !== false ) {
 			if (notification === "REFRESHPICTURE" + self.config.id) {
+				if (self.config.imageBaseUrl !== false) {
+					this.config.url = self.config.imageBaseUrl + payload;
+				}
 				this.updateDom(self.config.fadeSpeed || 0);
 			} 
 		} else {
 			if (notification === "REFRESHPICTURE") {
+				if (self.config.imageBaseUrl !== false) {
+					this.config.url = self.config.imageBaseUrl + payload;
+				}
 				this.updateDom(self.config.fadeSpeed || 0);
 			}
 		}
