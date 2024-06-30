@@ -66,6 +66,31 @@ Add some [config entries](#configuration) with the atleast the requierd [options
 	// And so on...
 ```
 
+Special case...
+
+```javascript
+	// Picture by notifications...
+	{
+		module: "MMM-Profilepicture",
+		position: "middle_center",
+		// The "first" picture will be shown until a new picture name is received from notifications.
+		classes: "everyone"
+		config: {
+			// See below for configurable options
+			// Start picture.
+			url: "http://the-url-to-first-picture"
+			// The base url for the rest of the pictures comming in via notifications.
+			imageBaseUrl: "https://your_site/images/",
+			// Uniqe ID for this instance (used when sending notifications (in this case it would be"REFRESHPICTUREPrettyPictures" as notification) and the "image name" (ex. "My-New-Car.jpg") as payload)
+			id: "PrettyPictures",
+			// Make the image fully visible (no transparency).
+			opacity: 1,
+		}
+	},
+```
+
+
+
 ### Options
 Here are the configuration options to configure the module.
 
@@ -78,5 +103,6 @@ Here are the configuration options to configure the module.
 |`fadeSpeed`|Fade speed in milliseconds when updating the picture.<br><br>**Default value:** `800`|
 |`id`|The id of this module, if you want to refresh only THIS modules picture remotely you need to set an ID (int) and then send "REFRESHPICTUREID (ID = the number here).<br><br>**Default value:** `false`|
 |`url`|The URL to the picture.<br><br>**Requierd value:** `URL`|
+|`imageBaseUrl`|The "common" URL to the pictures if you want to send image names over notifications to the module.<br><br>**Defautl value:** `false`|
 
 All done. :)
