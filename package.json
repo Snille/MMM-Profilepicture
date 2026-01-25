@@ -1,0 +1,19 @@
+{
+  "name": "MMM-Profilepicture",
+  "version": "1.0.0",
+  "description": "MagicMirror² module to set a background picture for the current profile.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Snille/MMM-Profilepicture.git"
+  },
+  "keywords": [
+    "magicmirror",
+    "magicmirror2",
+    "MagicMirror²",
+    "profile",
+    "background",
+    "module"
+  ],
+  "author": "Erik Pettersson",
+  "license": "MIT"
+}
