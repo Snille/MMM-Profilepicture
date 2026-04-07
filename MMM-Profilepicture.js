@@ -1,6 +1,6 @@
 /* global Module */
 
-/* Magic Mirror
+/* MagicMirror²
  * Module: MMM-Profilepicture
  *
  * By Erik Pettersson - http://www.snille.net
@@ -45,7 +45,7 @@ Module.register("MMM-Profilepicture",{
 	// Checks if the URL config is set. If not uses the default picture.
 	start: function () {
 		if (this.config.url === false) { 
-			Log.info("No URL set under config, using dafault profile image: " + this.data.path + "pictures/carbon.jpg");
+			Log.info("No URL set under config, using default profile image: " + this.data.path + "pictures/carbon.jpg");
 			this.config.url = "./" + this.data.path + "pictures/carbon.jpg";
 		}
 		// Auto update if set.
