@@ -29,7 +29,7 @@ Module.register("MMM-Profilepicture",{
 	},
 
 	// Refresh the picture if the notification "REFRESHPICTURE(x)" arrives.
-	notificationReceived: function (notification, payload, sender) {
+	notificationReceived: function (notification) {
 		var self = this;
 		if (self.config.id !== false ) {
 			if (notification === "REFRESHPICTURE" + self.config.id) {
