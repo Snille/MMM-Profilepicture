@@ -46,7 +46,17 @@ To update the module:
 ```bash
 cd ~/MagicMirror/modules/MMM-Profilepicture
 git pull
-npm install
+npm ci --omit=dev
+```
+
+`npm ci` installs exactly what `package-lock.json` lists and never rewrites the file, so the next `git pull` is not blocked by local changes. `--omit=dev` skips the development tools (ESLint), which the mirror does not need.
+
+If `git pull` stops because `package-lock.json` has local changes (for example after an earlier `npm install`), reset the file first:
+
+```bash
+git checkout package-lock.json
+git pull
+npm ci --omit=dev
 ```
 
 Add some [config entries](#configuration) with at least the required [options](#options) in your `config.js` file. Add the module one time for each user, with different URLs for each user.

@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## Unreleased
+
+- README: update with `npm ci --omit=dev` instead of `npm install`, so `package-lock.json` is not rewritten on the mirror.
+
 ## 1.1.0
 
 - Added the `SETPICTUREID` notification. It changes the picture of a module with an `id` without a restart. The payload is the URL, or an object with `url` and optional `opacity`, `maxWidth` and `maxHeight`.
