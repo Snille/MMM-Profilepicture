@@ -89,7 +89,30 @@ Here are the configuration options to configure the module.
 |`maxHeight`|Maximum height of the picture.<br><br>**Default value:** `100%`|
 |`updateInterval`|Picture refresh time in milliseconds (1000 * 60 * 5) = 5 min. `false` = no auto update <br><br>**Default value:** `false`|
 |`fadeSpeed`|Fade speed in milliseconds when updating the picture.<br><br>**Default value:** `800`|
-|`id`|The id of this module. If you want to refresh only this module's picture remotely you need to set an ID (int) and then send `REFRESHPICTUREID`, where `ID` is the number here.<br><br>**Default value:** `false`|
-|`url`|The URL to the picture.<br><br>**Required value:** `URL`|
+|`id`|The id of this module. If you want to refresh only this module's picture remotely you need to set an ID (int) and then send `REFRESHPICTUREID`, where `ID` is the number here. An ID is also needed to change the picture with `SETPICTUREID` (see below).<br><br>**Default value:** `false`|
+|`url`|The URL to the picture. An empty string (`""`) shows no picture.<br><br>**Required value:** `URL`|
+
+## Change the picture remotely
+
+A module with an `id` can change its picture without a restart. Send the notification `SETPICTUREID`, where `ID` is the module's `id`.
+
+The payload is the URL as a string, or an object:
+
+```javascript
+this.sendNotification("SETPICTURE2", {
+	url: "https://example.com/next-picture.png", // "" = no picture
+	opacity: 1.0,        // optional
+	maxWidth: "100%",    // optional
+	maxHeight: "100%"    // optional
+});
+```
+
+With [MMM-Remote-Control](https://github.com/Jopyth/MMM-Remote-Control) you can do the same over HTTP:
+
+```bash
+curl -X POST "http://MIRROR:8080/api/notification/SETPICTURE2?apiKey=YOUR_KEY"   -H "Content-Type: application/json"   -d '{"url":"https://example.com/next-picture.png"}'
+```
+
+Modules without an `id` ignore `SETPICTURE`. Then one notification cannot change every profile picture at once.
 
 All done. :)

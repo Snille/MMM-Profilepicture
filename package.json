@@ -1,6 +1,6 @@
 {
   "name": "mmm-profilepicture",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "commonjs",
   "description": "MagicMirror² module to set a background picture for the current profile.",
   "repository": {

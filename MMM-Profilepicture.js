@@ -29,17 +29,39 @@ Module.register("MMM-Profilepicture",{
 	},
 
 	// Refresh the picture if the notification "REFRESHPICTURE(x)" arrives.
-	notificationReceived: function (notification) {
+	// Change the picture if the notification "SETPICTURE(x)" arrives (only modules with an id).
+	notificationReceived: function (notification, payload) {
 		var self = this;
 		if (self.config.id !== false ) {
 			if (notification === "REFRESHPICTURE" + self.config.id) {
 				this.updateDom(self.config.fadeSpeed || 0);
-			} 
+			} else if (notification === "SETPICTURE" + self.config.id) {
+				this.setPicture(payload);
+			}
 		} else {
 			if (notification === "REFRESHPICTURE") {
 				this.updateDom(self.config.fadeSpeed || 0);
 			}
 		}
+	},
+
+	// Sets a new picture. The payload is the URL as a string, or an object with
+	// "url" and optional "opacity", "maxWidth" and "maxHeight". An empty URL shows no picture.
+	setPicture: function (payload) {
+		if (payload === null || typeof payload !== "object") {
+			payload = { url: payload };
+		}
+		this.config.url = payload.url || "";
+		if (payload.opacity !== undefined) {
+			this.config.opacity = payload.opacity;
+		}
+		if (payload.maxWidth !== undefined) {
+			this.config.maxWidth = payload.maxWidth;
+		}
+		if (payload.maxHeight !== undefined) {
+			this.config.maxHeight = payload.maxHeight;
+		}
+		this.updateDom(this.config.fadeSpeed || 0);
 	},
 
 	// Checks if the URL config is set. If not uses the default picture.
@@ -67,8 +89,12 @@ Module.register("MMM-Profilepicture",{
 		} else {
 			wrapper.className = "mmm-profilepicture";
 		}
+		// No URL (empty string) = no picture.
+		if (!this.config.url) {
+			return wrapper;
+		}
 		var image = document.createElement("img");
-		image.src = this.config.url + "?" + new Date().getTime();
+		image.src = this.config.url + (this.config.url.indexOf("?") === -1 ? "?" : "&") + new Date().getTime();
 		image.id = "mmm-profilepicture";
 		image.style.maxWidth = this.config.maxWidth;
 		image.style.maxHeight = this.config.maxHeight;
